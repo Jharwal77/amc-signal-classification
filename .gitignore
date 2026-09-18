@@ -16,3 +16,14 @@ archive/
 
 # Local backup
 *_backup*.zip
+
+# Local report/submission artifacts
+AMC_FINAL_SUBMISSION.zip
+AMC_FINAL_SUBMISSION/
+report_images/
+reports/
+add_figures_to_report.py
+add_missing_dashboard_figures.py
+assemble_report.py
+convert_reports.py
+rebuild_submission_report.py
