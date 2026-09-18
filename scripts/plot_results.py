@@ -20,89 +20,9 @@ CLASS_NAMES = [
 
 
 # =========================================================
-# 1. CNN Accuracy vs SNR
+# Final end-to-end visualizations
 # =========================================================
 
-data = np.load(
-    "models/cnn_snr_results.npz"
-)
-
-snr = data["snr"]
-accuracy = data["accuracy"] * 100
-
-plt.figure(figsize=(9, 6))
-
-plt.plot(
-    snr,
-    accuracy,
-    marker="o",
-    linewidth=2,
-)
-
-for x, y in zip(snr, accuracy):
-    plt.annotate(
-        f"{y:.2f}%",
-        (x, y),
-        textcoords="offset points",
-        xytext=(0, 8),
-        ha="center",
-    )
-
-plt.xlabel("SNR (dB)")
-plt.ylabel("Classification Accuracy (%)")
-plt.title("CNN Modulation Classification Accuracy vs SNR")
-plt.grid(True, alpha=0.3)
-plt.xticks(snr)
-plt.ylim(0, 100)
-plt.tight_layout()
-
-plt.savefig(
-    "results/cnn_accuracy_vs_snr.png",
-    dpi=300,
-)
-
-plt.close()
-
-print("Saved: results/cnn_accuracy_vs_snr.png")
-
-
-# =========================================================
-# 2. CNN Confusion Matrix
-# =========================================================
-
-cm = np.load(
-    "models/cnn_snr_confusion_matrix.npy"
-)
-
-fig, ax = plt.subplots(figsize=(9, 8))
-
-display = ConfusionMatrixDisplay(
-    confusion_matrix=cm,
-    display_labels=CLASS_NAMES,
-)
-
-display.plot(
-    ax=ax,
-    xticks_rotation=45,
-)
-
-ax.set_title(
-    "CNN Modulation Classification Confusion Matrix"
-)
-
-plt.tight_layout()
-
-plt.savefig(
-    "results/cnn_confusion_matrix.png",
-    dpi=300,
-)
-
-plt.close()
-
-print("Saved: results/cnn_confusion_matrix.png")
-
-
-# =========================================================
 # 3. End-to-End Modulation Confusion Matrix
 # =========================================================
 
