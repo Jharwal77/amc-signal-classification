@@ -1,0 +1,18 @@
+﻿.venv/
+.venv-1/
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/
+.DS_Store
+Thumbs.db
+
+# Large generated datasets
+data/*.npz
+
+# Archived development artifacts
+archive/
+
+# Local backup
+*_backup*.zip
